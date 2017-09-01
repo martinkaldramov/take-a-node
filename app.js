@@ -6,9 +6,9 @@ const yargs = require('yargs');
 
 const notes = require('./notes.js');
 
-var command = process.argv[2];
-
 const argv = yargs.argv;
+
+var command = argv._[0];
 console.log('Command: ', command);
 console.log('Yargs:', argv);
 
@@ -18,7 +18,7 @@ else if(command === 'list')
   notes.getAll();
 else if(command === 'read')
   notes.readNote(argv.title);
-else if(command === 'delete')
+else if(command === 'remove')
   notes.deleteNote(argv.title);
 else
   console.log('Command not found');
