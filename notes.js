@@ -10,6 +10,13 @@ var readNote = (title) => {
   console.log('Reading note with title', title);
 }
 
+var deleteNote = (title) => {
+  console.log('deleting note', title);
+}
+
 module.exports = {
-  addNote 
+  addNote,
+  getAll,
+  readNote,
+  deleteNote 
 }

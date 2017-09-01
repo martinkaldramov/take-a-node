@@ -17,8 +17,8 @@ if(command === 'add')
 else if(command === 'list')
   notes.getAll();
 else if(command === 'read')
-  readNote(argv.title);
+  notes.readNote(argv.title);
 else if(command === 'delete')
-  deleteNote(argv.title);
+  notes.deleteNote(argv.title);
 else
   console.log('Command not found');
