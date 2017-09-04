@@ -26,7 +26,9 @@ else if(command === 'list')
   notes.getAll();
 else if(command === 'read')
   notes.readNote(argv.title);
-else if(command === 'remove')
-  notes.deleteNote(argv.title);
+else if(command === 'remove'){
+  var noteRemoved = notes.deleteNote(argv.title);
+  var message = noteRemoved ? 'Note Successfully removed' : 'Note not found';
+}
 else
   console.log('Command not found');
