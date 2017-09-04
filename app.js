@@ -20,8 +20,11 @@ if(command === 'add'){
   }else
     console.log(`note with that title already exists`);
 }
-else if(command === 'list')
-  notes.getAll();
+else if(command === 'list'){
+  var list = notes.getAll();
+  console.log(`Printing ${list.length} note(s).`);
+  list.forEach((note) => console.log(`Title: ${note.title} Body: ${note.body}`));
+}
 else if(command === 'read'){
   var note = notes.readNote(argv.title);
   if(note){
