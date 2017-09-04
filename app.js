@@ -14,9 +14,12 @@ console.log('Yargs:', argv);
 
 if(command === 'add'){
   var note = notes.addNote(argv.title, argv.body);
-  if(note !== undefined)
-    console.log(`${note.title} added successfully`);
-  else
+  if(note !== undefined){
+    console.log(`Note added successfully`);
+    console.log(`--`);
+    console.log(`Title: ${note.title}`);
+    console.log(`Body: ${note.body}`);
+  }else
     console.log(`note with that title already exists`);
 }
 else if(command === 'list')
