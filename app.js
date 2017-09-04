@@ -14,18 +14,23 @@ console.log('Yargs:', argv);
 
 if(command === 'add'){
   var note = notes.addNote(argv.title, argv.body);
-  if(note !== undefined){
+  if(note){
     console.log(`Note added successfully`);
-    console.log(`--`);
-    console.log(`Title: ${note.title}`);
-    console.log(`Body: ${note.body}`);
+    notes.logNote(note);
   }else
     console.log(`note with that title already exists`);
 }
 else if(command === 'list')
   notes.getAll();
-else if(command === 'read')
-  notes.readNote(argv.title);
+else if(command === 'read'){
+  var note = notes.readNote(argv.title);
+  if(note){
+    console.log(`Note found`); 
+    notes.logNote(note);
+  }else{
+    console.log('Note not found. Pelase try again');
+  }
+}
 else if(command === 'remove'){
   var noteRemoved = notes.deleteNote(argv.title);
   var message = noteRemoved ? 'Note Successfully removed' : 'Note not found';
